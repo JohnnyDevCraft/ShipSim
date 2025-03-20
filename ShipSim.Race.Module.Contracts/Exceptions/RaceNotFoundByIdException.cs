@@ -2,11 +2,7 @@ using System;
 
 namespace ShipSim.Race.Module.Contracts.Exceptions;
 
-public class RaceNotFoundByIdException : Exception
+public class RaceNotFoundByIdException(params object?[] values) : Exception(string.Format(ErrorMessage, values))
 {
-    public const string ErrorMessage = "ErrorMessage";
-
-    public RaceNotFoundByIdException(params string[] values) : base(string.Format(ErrorMessage, values))
-    {
-    }
+    private const string ErrorMessage = "The Race with Id {0} was not found.";
 }

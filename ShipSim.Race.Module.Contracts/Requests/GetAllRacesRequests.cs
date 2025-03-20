@@ -1,7 +1,8 @@
 using MediatR;
+using ShipSim.Race.Module.Contracts.ViewModels;
 
 namespace ShipSim.Race.Module.Contracts.Requests;
 
-public record Action(InParams) : IRequest<ActionResult>;
+public record GetAllRacesRequests() : IRequest<GetAllRacesRequestsResult>;
 
-public record ActionResult(OutParams);
+public record GetAllRacesRequestsResult(IEnumerable<RaceDto> Races);

@@ -1,15 +1,14 @@
-using System.Security.Claims;
 using AutoMapper;
 using MediatR;
 using MongoDB.Driver;
 using ShipSim.AspireConstants;
-using ShipSim.Ship.Module.Caching;
 using ShipSim.Ship.Module.Contracts.Commands;
 using ShipSim.Ship.Module.Contracts.DataTransfer;
+using ShipSim.Ship.Module.Contracts.Queries;
 
 namespace ShipSim.Ship.Module.CommandHandlers;
 
-public class CreateShipCommandHandler(IMongoClient mongoClient, IMapper mapper, PlayerCacheService pcs) : IRequestHandler<CreateShipCommand, CreateShipCommandResult>
+internal class CreateShipCommandHandler(IMongoClient mongoClient, IMapper mapper, IMediator mediator) : IRequestHandler<CreateShipCommand, CreateShipCommandResult>
 {
     IMongoCollection<Entities.Ship> ships = mongoClient
         .GetDatabase(Defaults.ShipModule.ShipsDb)
@@ -30,8 +29,8 @@ public class CreateShipCommandHandler(IMongoClient mongoClient, IMapper mapper, 
         
         var shipDto = mapper.Map<ShipDto>(ship);
         
-        shipDto.Player = pcs.GetPlayerAsync(Guid.Parse(request.Email)).Result;
-        
+        var player = await mediator.Send(new GetCachedPlayerQuery(request.Email), cancellationToken);
+        shipDto.Player = player.Player;
 
         return new CreateShipCommandResult(shipDto);
     }

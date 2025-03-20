@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Scalar.AspNetCore" Version="2.0.34" />
+        <PackageReference Include="Aspire.StackExchange.Redis" Version="9.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Aspire\ShipSim.ServiceDefaults\ShipSim.ServiceDefaults.csproj" />
+      <ProjectReference Include="..\Players\ShipSim.Players.Module\ShipSim.Players.Module.csproj" />
+      <ProjectReference Include="..\ShipSim.Core\ShipSim.Core.csproj" />
+      <ProjectReference Include="..\ShipSim.Race.Module\ShipSim.Race.Module.csproj" />
+      <ProjectReference Include="..\ShipSim.Ship.Module\ShipSim.Ship.Module.csproj" />
+    </ItemGroup>
+
+</Project>

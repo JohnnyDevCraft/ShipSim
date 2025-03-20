@@ -2,11 +2,7 @@ using System;
 
 namespace ShipSim.Players.Module.Contracts.Exceptions;
 
-public class UserByEmailNotFoundException : Exception
+public class UserByEmailNotFoundException(params object?[] values) : Exception(string.Format(ErrorMessage, values))
 {
-    public const string ErrorMessage = "ErrorMessage";
-
-    public UserByEmailNotFoundException(params string[] values) : base(string.Format(ErrorMessage, values))
-    {
-    }
+    private const string ErrorMessage = "Unable to locate user with email: {0}";
 }

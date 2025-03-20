@@ -1,7 +1,8 @@
 using MediatR;
+using ShipSim.Players.Module.Contracts.ViewModels;
 
 namespace ShipSim.Players.Module.Contracts.Requests;
 
-public record Action(InParams) : IRequest<ActionResult>;
+public record GetUserByIdRequest(Guid Id) : IRequest<GetUserByIdRequestResult>;
 
-public record ActionResult(OutParams);
+public record GetUserByIdRequestResult(PlayerDto Player);

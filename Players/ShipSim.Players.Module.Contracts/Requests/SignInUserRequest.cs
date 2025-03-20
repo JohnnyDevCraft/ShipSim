@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace ShipSim.Players.Module.RequestHandlers;
+namespace ShipSim.Players.Module.Contracts.Requests;
 
 public record SignInUserRequest(string Email, string Password) : IRequest<SignInUserRequestResult>;
 

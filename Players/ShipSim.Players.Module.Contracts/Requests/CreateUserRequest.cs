@@ -2,6 +2,13 @@ using MediatR;
 
 namespace ShipSim.Players.Module.Contracts.Requests;
 
-public record Action(InParams) : IRequest<ActionResult>;
+public record CreateUserRequest(
+    string Email,
+    string FirstName,
+    string LastName,
+    string Password
+    ) : IRequest<CreateUserRequestResult>;
 
-public record ActionResult(OutParams);
+public record CreateUserRequestResult(
+    Guid UserId
+    );

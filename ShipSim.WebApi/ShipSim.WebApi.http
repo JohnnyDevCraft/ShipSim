@@ -1,0 +1,51 @@
+@ShipSim = https://localhost:4201
+
+
+POST {{ShipSim}}/players
+Content-Type: application/json
+
+{
+  "email": "jd49490@me.com",
+  "firstName": "Johnathon",
+  "lastName": "Smith",
+  "password": "Snafu201!"
+}
+
+###
+POST {{ShipSim}}/players/sign-in
+Content-Type: application/json
+
+{
+  "email": "jd49490@me.com",
+  "password": "Snafu201!"
+}
+
+> {% client.global.set("jwtToken", response.body.accessToken); %}
+
+###
+POST {{ShipSim}}/ships
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+{
+  "name": "USS Enterprise",
+  "identifier": "NCC-1701",
+  "email": "jd49490@me.com"
+}
+
+###
+POST {{ShipSim}}/ships
+Content-Type: application/json
+
+{
+  "name": "USS Enterprise",
+  "identifier": "NCC-1701",
+  "email": "jd49490@me.com"
+}
+
+###
+GET {{ShipSim}}/api/Race
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+###

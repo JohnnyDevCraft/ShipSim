@@ -1,7 +1,8 @@
 using MediatR;
+using ShipSim.Race.Module.Contracts.ViewModels;
 
 namespace ShipSim.Race.Module.Contracts.Requests;
 
-public record Action(InParams) : IRequest<ActionResult>;
+public record GetRaceByIdRequest(Guid Id) : IRequest<GetRaceByIdRequestResult>;
 
-public record ActionResult(OutParams);
+public record GetRaceByIdRequestResult(RaceDto Race);

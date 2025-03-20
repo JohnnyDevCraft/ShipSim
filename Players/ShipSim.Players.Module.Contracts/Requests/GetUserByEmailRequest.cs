@@ -1,7 +1,8 @@
 using MediatR;
+using ShipSim.Players.Module.Contracts.ViewModels;
 
 namespace ShipSim.Players.Module.Contracts.Requests;
 
-public record Action(InParams) : IRequest<ActionResult>;
+public record GetUserByEmailRequest(string Email) : IRequest<GetUserByEmailRequestResult>;
 
-public record ActionResult(OutParams);
+public record GetUserByEmailRequestResult(PlayerDto Player);

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-ShipSim.Migrator-b981d445-e506-4277-ad22-94e30f871874</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Aspire\ShipSim.ServiceDefaults\ShipSim.ServiceDefaults.csproj" />
+      <ProjectReference Include="..\Players\ShipSim.Players.Module\ShipSim.Players.Module.csproj" />
+      <ProjectReference Include="..\ShipSim.AspireConstants\ShipSim.AspireConstants.csproj" />
+      <ProjectReference Include="..\ShipSim.Ship.Module\ShipSim.Ship.Module.csproj" />
+        <ProjectReference Include="..\ShipSim.Race.Module\ShipSim.Race.Module.csproj" />
+    </ItemGroup>
+</Project>

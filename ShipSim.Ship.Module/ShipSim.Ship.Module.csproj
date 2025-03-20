@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="RequestHandlers\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.Redis" Version="9.1.0" />
+        <PackageReference Include="Aspire.MongoDB.Driver" Version="9.1.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\Players\ShipSim.Players.Module.Contracts\ShipSim.Players.Module.Contracts.csproj" />
+      <ProjectReference Include="..\ShipSim.AspireConstants\ShipSim.AspireConstants.csproj" />
+      <ProjectReference Include="..\ShipSim.ModuleCore\ShipSim.ModuleCore.csproj" />
+      <ProjectReference Include="..\ShipSim.Race.Module.Contracts\ShipSim.Race.Module.Contracts.csproj" />
+      <ProjectReference Include="..\ShipSim.Ship.Module.Contracts\ShipSim.Ship.Module.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

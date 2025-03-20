@@ -1,11 +1,11 @@
-namespace ShipSim.Players.Module.Contracts.Events;
+namespace ShipSim.Players.Module.Contracts.Configuration;
 
 public class JwtConfig
 {
-    public string? Secret { get; set; }
-    public string? Issuer { get; set; }
-    public string? Audience { get; set; }
-    public int AccessTokenExpiration { get; set; }
-    public int RefreshTokenExpiration { get; set; }
+    public required string Secret { get; set; }
+    public required string Issuer { get; set; }
+    public required string Audience { get; set; }
+    public int ExpiryInMinutes { get; set; }
+    public int RefreshTokenExpiryInHours { get; set; }
     
 }

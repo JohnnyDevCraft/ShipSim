@@ -1,7 +1,8 @@
 using MediatR;
+using ShipSim.Players.Module.Contracts.ViewModels;
 
 namespace ShipSim.Ship.Module.Contracts.Queries;
 
-public record Action(InParams) : IRequest<ActionResult>;
+public record GetCachedPlayerQuery(string Email) : IRequest<GetCachedPlayerQueryResult>;
 
-public record ActionResult(OutParams);
+public record GetCachedPlayerQueryResult(PlayerDto Player);

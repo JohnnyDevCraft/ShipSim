@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Configuration\" />
+      <Folder Include="Events\" />
+      <Folder Include="Requests\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Players\ShipSim.Players.Module.Contracts\ShipSim.Players.Module.Contracts.csproj" />
+      <ProjectReference Include="..\ShipSim.Core\ShipSim.Core.csproj" />
+    </ItemGroup>
+
+</Project>

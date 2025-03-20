@@ -1,6 +1,7 @@
-using ShipSim.Ship.Module.Contracts.Enums;
+using ShipSim.Players.Module.Contracts.ViewModels;
+using ShipSim.Ship.Module.Contracts.ViewModels;
 
-namespace ShipSim.Ship.Module.Contracts.ViewModels;
+namespace ShipSim.Ship.Module.Contracts.DataTransfer;
 
 public class ShipDto
 {
@@ -9,6 +10,8 @@ public class ShipDto
     public required string Identifier { get; set; }
     public DateTime DateCreated { get; set; }
     public string Owner { get; set; }
+    
+    public PlayerDto? Player { get; set; }
     
     public Guid ShipTypeId { get; set; }
     public ShipTypeDto? ShipType { get; set; }
