@@ -49,3 +49,12 @@ Content-Type: application/json
 Authorization: Bearer {{jwtToken}}
 
 ###
+
+PUT {{ShipSim}}/players/my-name
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+{
+  "firstName": "James",
+  "lastName": "Smith"
+}
