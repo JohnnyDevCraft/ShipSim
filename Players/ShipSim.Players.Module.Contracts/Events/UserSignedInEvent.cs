@@ -5,7 +5,7 @@ namespace ShipSim.Players.Module.Contracts.Events;
 
 public class UserSignedInEvent(PlayerDto playerDto): IEvent
 {
-    public DateTime EventTime { get; set; } = DateTime.UtcNow;
-    public string UserName { get; set; } = "System";
+    public DateTime EventTime { get; init; } = DateTime.UtcNow;
+    public string Email { get; init; } = "System";
     public PlayerDto Player { get; set; } = playerDto;
 }

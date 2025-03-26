@@ -20,5 +20,6 @@ internal static class PlayerEndpoints
             var result = await mediator.Send(request);
             return Results.Ok(result);
         });
+        
     }
 }
