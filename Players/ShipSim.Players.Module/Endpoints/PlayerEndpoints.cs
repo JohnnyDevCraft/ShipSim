@@ -21,5 +21,11 @@ internal static class PlayerEndpoints
             return Results.Ok(result);
         });
         
+        app.MapPut("/players/my-name", async (IMediator mediator, ChangeNamesForUserRequest request) =>
+        {
+            var result = await mediator.Send(request);
+            return Results.Ok(result);
+        }).RequireAuthorization().RequireCors();
+
     }
 }
