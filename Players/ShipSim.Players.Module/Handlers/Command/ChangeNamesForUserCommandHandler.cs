@@ -27,7 +27,7 @@ internal class ChangeNamesForUserCommandHandler(PlayersDbContext db, IMapper map
         await db.SaveChangesAsync(cancellationToken);
         var dto = mapper.Map<PlayerDto>(player);
         
-        // TODO: Add the event code here
+        await mediator.Publish(new UserUpdatedEvent(DateTime.Now,dto.Email,dto), cancellationToken);
         
         return new ChangeNamesForUserCommandResult(mapper.Map<PlayerDto>(player));
     }
